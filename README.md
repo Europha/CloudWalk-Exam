@@ -1,3 +1,135 @@
+# Project Structure and Setup
+
+This project is split into two main parts: the **API** and the **Front-End**. Both components are designed to run using **Bun** to manage and fetch the necessary dependencies.
+
+## Table of Contents
+1. [Project Structure Overview](#project-structure-overview)
+2. [Setting Up the API](#setting-up-the-api)
+3. [Setting Up the Front-End](#setting-up-the-front-end)
+4. [Database Setup](#database-setup)
+5. [User Authentication Details](#user-authentication-details)
+
+---
+
+## Project Structure Overview
+
+The project is organized as follows:
+# Project Structure and Setup
+
+This project is split into two main parts: the **API** and the **Front-End**. Both components are designed to run using **Bun** to manage and fetch the necessary dependencies.
+
+## Table of Contents
+1. [Project Structure Overview](#project-structure-overview)
+2. [Setting Up the API](#setting-up-the-api)
+3. [Setting Up the Front-End](#setting-up-the-front-end)
+4. [Database Setup](#database-setup)
+5. [User Authentication Details](#user-authentication-details)
+
+---
+
+## Project Structure Overview
+
+The project is organized as follows:
+
+```
+/project-root
+    /api                 # Backend code (API)
+    /front               # Frontend code
+    /company_backup.sql  # SQL dump files
+    /node_modules      # Dependencies installed by Bun (not committed to VCS)
+    bun.lockb          # Bun lock file for dependencies
+    bunfig.toml        # Bun configuration file
+    README.md          # Project documentation
+```
+
+### Key Components:
+- **API**: This folder contains the backend code, which handles business logic, database interactions, and API routes.
+- **Front-End**: This folder contains the UI code, responsible for rendering the user interface and communicating with the API.
+- **db**: Contains the SQL dump file needed to populate the database with initial data.
+
+---
+
+## Setting Up the API
+
+To set up and run the API:
+
+1. Navigate to the `api` directory:
+    ```bash
+    cd api
+    ```
+
+2. Install dependencies using Bun:
+    ```bash
+    bun install
+    ```
+
+3. Once the dependencies are installed, you can start the API server:
+    ```bash
+    bun run src/index.ts
+    ```
+
+---
+
+## Setting Up the Front-End
+
+To set up and run the Front-End:
+
+1. Navigate to the `frontend` directory:
+    ```bash
+    cd frontend
+    ```
+
+2. Install dependencies using Bun:
+    ```bash
+    bun install
+    ```
+
+3. Once the dependencies are installed, you can start the Front-End development server:
+    ```bash
+    bun run dev
+    ```
+
+---
+
+## Database Setup
+
+The database is populated using a SQL dump file located in the `db` directory. This file contains the necessary structure and initial data for the application to function.
+
+To set up the database:
+
+1. Access your database environment (e.g., MySQL, PostgreSQL) using your preferred database client.
+2. Import the SQL dump file:
+    ```bash pg_restore -d managementdb < company_backup.sql```
+   
+   (Adjust the command as necessary depending on your database system.)
+
+---
+
+## User Authentication Details
+
+To access the application, the user must log in with the following credentials:
+
+- **Username**: `cloud.walk`
+- **Password**: `examtestament`
+
+These credentials are for test purposes and can be used to verify the functionality of the authentication system.
+
+---
+
+### Troubleshooting
+
+If you encounter any issues:
+
+- Ensure that **Bun** is installed and up to date. You can check this by running:
+    ```bash
+    bun --version
+    ```
+
+- If you face issues with dependencies or the database setup, refer to the individual API or Front-End logs for more details on specific errors.
+
+For further assistance, please consult the documentation or reach out to the development team.
+```
+
 # Security Dashboard API Documentation
 
 ## Base URL
@@ -146,7 +278,10 @@ GET /api/sec/ip
 2. IP info for all entries
 3. Vulnerability analysis for 10 random entries
 4. Attack pattern analysis with optional IP banning
-
+5. 
+### About IPINFO endpoint based:
+- Since the IPINFO endpoints (like depth=1 and depth=2) are exclusive for IP check, may the project not will be work properly since is trial key used. The purpose from these modules is learn and filter providers and countrys which IP come from, to ban and workaround Tor and evil VPN's services.
+- 
 #### Responses
 - **Success (200)**
   ```json
